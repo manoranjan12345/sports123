@@ -20,10 +20,18 @@ User user1 = (User) session.getAttribute("current-user");
 				<li class="nav-item active"><a class="nav-link"
 					href="about.jsp">About <span class="sr-only">(current)</span></a></li>
 			</ul>
+			<ul class="navbar-nav mr-auto">
+				<input type="text" placeholder="Search.." name="search">
+				<button type="submit">
+					<i class="fa fa-search"></i>
+				</button>
+			</ul>
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a class="nav-link"
-					href="" data-toggle="modal" data-target="#cart"><i class="fa fa-cart-plus"></i>Cart<span class="ml-1 cart-items" style="font-size:13px;">(0)</span></a></li>
-				
+				<li class="nav-item active"><a class="nav-link" href=""
+					data-toggle="modal" data-target="#cart"><i
+						class="fa fa-cart-plus"></i>Cart<span class="ml-1 cart-items"
+						style="font-size: 13px;">(0)</span></a></li>
+
 				<%
 				if (user1 == null) {
 				%>
@@ -34,7 +42,9 @@ User user1 = (User) session.getAttribute("current-user");
 				<%
 				} else {
 				%>
-				<li class="nav-item active"><a href="<%=user1.getUserType().equals("admin")?"admin.jsp":"normal.jsp" %>" class="nav-link" >Hello <%= user1.getUserName()%></a></li>
+				<li class="nav-item active"><a
+					href="<%=user1.getUserType().equals("admin") ? "admin.jsp" : "normal.jsp"%>"
+					class="nav-link">Hello <%=user1.getUserName()%></a></li>
 				<li class="nav-item active"><a class="nav-link"
 					href="LogoutServlet">Logout</a></li>
 				<%
